@@ -8,9 +8,18 @@
     --highlight-color: #ff8c00;
 }
 
+.title {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    background-color: var(--highlight-color);
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 .navbar {
     position: fixed;
-    top: 0;
+    top: 55px;
     width: 100%;
     background-color: var(--highlight-color);
     padding: 10px;
@@ -58,8 +67,8 @@ body {
 
 .play-btn {
     position: absolute;
-    top: 400px;
-    left: 1150px;
+    top: 340px;
+    left: 820px;
     padding: 15px 30px;
     margin: 10px;
     font-size: 1.2rem;
@@ -79,7 +88,7 @@ body {
 .instructions-btn {
     position: absolute;
     top: 400px;
-    left: 1250px;
+    left: 790px;
     padding: 15px 30px;
     margin: 10px;
     font-size: 1.2rem;
@@ -92,6 +101,26 @@ body {
 }
 
 .instructions-btn:hover {
+    background-color: #e07a00;
+    transform: scale(1.05);
+}
+
+.leaderboard-btn {
+    position: absolute;
+    top: 460px;
+    left: 780px;
+    padding: 15px 37px;
+    margin: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--highlight-color);
+    color: var(--section-bg-color);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.leaderboard-btn:hover {
     background-color: #e07a00;
     transform: scale(1.05);
 }
