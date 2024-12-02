@@ -9,7 +9,7 @@
 }
 
 .title {
-    font-family: 'Play',sans-serif;
+    font-family: 'Play', sans-serif;
     font-weight: 250;
     position: fixed;
     top: 0px;
@@ -21,7 +21,7 @@
 }
 
 .navbar {
-    font-family: 'Play',sans-serif;
+    font-family: 'Play', sans-serif;
     font-weight: 250;
     position: fixed;
     top: 80px;
@@ -60,7 +60,7 @@ body {
     background-color: var(--page-color);
 }
 
-.main-content {
+#main-content {
     /* flex: 1; */
     display: flex;
     flex-direction: column;
@@ -72,7 +72,7 @@ body {
 }
 
 .play-btn {
-    font-family: 'Play',sans-serif;
+    font-family: 'Play', sans-serif;
     font-weight: 250;
     position: absolute;
     top: 340px;
@@ -94,7 +94,7 @@ body {
 }
 
 .instructions-btn {
-    font-family: 'Play',sans-serif;
+    font-family: 'Play', sans-serif;
     font-weight: 250;
     position: absolute;
     top: 400px;
@@ -116,7 +116,7 @@ body {
 }
 
 .leaderboard-btn {
-    font-family: 'Play',sans-serif;
+    font-family: 'Play', sans-serif;
     font-weight: 250;
     position: absolute;
     top: 460px;
@@ -136,4 +136,3 @@ body {
     background-color: #e07a00;
     transform: scale(1.05);
 }
-

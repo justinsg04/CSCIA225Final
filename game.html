@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <title>N&J Matching Game</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/game.css">
 
-    <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
         href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Playwrite+DE+Grund:wght@100..400&display=swap"
         rel="stylesheet">
 
-    <script src="js/index.js" defer></script>
+    <script src="js/game.js" defer></script>
 </head>
 
 <body>
@@ -29,19 +29,24 @@
         </ul>
     </nav>
 
-    <!-- Welcome Screen-->
-    <div class="welcome">
-        <button class="play-btn" id="play-button" type="button">Play</button>
-        <button class="instructions-btn" id="instructions-button" type="button">How to Play</button>
-        <button class="leaderboard-btn" id="leaderboard-btn" type="button">Leaderboard</button>
+    <div id="main-content">
+        <div id="options">
+            <label for="difficulty">Choose difficulty:</label>
+            <select id="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+
+            <button id="start-button" type="button">Start Game</button>
+        </div>
+
+        <div id="game">
+
+        </div>
     </div>
 
-    <!-- <header>
-        <h1>Matching game</h1>
-    </header> -->
 
-    <footer>
-    </footer>
 </body>
 
 </html>
