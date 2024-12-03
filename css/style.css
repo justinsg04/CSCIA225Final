@@ -54,6 +54,10 @@
     text-decoration: underline;
 }
 
+.howto {
+    cursor: pointer;
+}
+
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
