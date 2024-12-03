@@ -116,6 +116,9 @@ body {
 }
 
 .howtoplaypopup {
+    font-family: 'Play', sans-serif;
+    font-weight: 250;
+    text-align: center;
     display: none;
     background: rgba(0, 0, 0, 0.4);
     position: fixed;
