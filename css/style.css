@@ -58,6 +58,20 @@
     cursor: pointer;
 }
 
+.howto:hover{
+    text-decoration: underline;
+    color: white;
+}
+
+.aboutus {
+    cursor: pointer;
+}
+
+.aboutus:hover{
+    text-decoration: underline;
+    color: white;
+}
+
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
@@ -175,4 +189,17 @@ body {
 .leaderboard-btn:hover {
     background-color: #e07a00;
     transform: scale(1.05);
+}
+
+.footer {
+    font-family: 'Play', sans-serif;
+    font-weight: bold;
+    font-size: large;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    background-color: var(--highlight-color);
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
