@@ -95,18 +95,18 @@ let secondCard = null;
 
 document.getElementById("start-button").addEventListener("click", generateGrid);
 
-let timerInterval; // To store the interval
-let elapsedTime = 0; // Elapsed time in seconds
+let timerInterval; 
+let elapsedTime = 0; 
 
 function startTimer() {
     const timerDisplay = document.getElementById("timer");
-    document.getElementById("timer-container").style.display = "block"; // Show the timer
+    document.getElementById("timer-container").style.display = "block"; 
     timerInterval = setInterval(() => {
         elapsedTime++;
         const minutes = Math.floor(elapsedTime / 60);
         const seconds = elapsedTime % 60;
         timerDisplay.textContent = `${minutes}:${seconds.toString().padStart(2, "0")}`;
-    }, 1000); // Update every second
+    }, 1000);
 }
 
 function stopTimer() {
@@ -120,6 +120,6 @@ function resetTimer() {
 }
 
 document.getElementById("start-button").addEventListener("click", () => {
-    resetTimer(); // Reset the timer in case of a replay
-    startTimer(); // Start the timer
+    resetTimer(); 
+    startTimer(); 
 });
