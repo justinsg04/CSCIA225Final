@@ -1,3 +1,14 @@
+document.getElementById("start-button").addEventListener("click", startGame);
+
+function startGame() {
+    resetTimer();
+    startTimer();
+    generateGrid();
+}
+
+let firstCard = null;
+let secondCard = null;
+
 function generateGrid() {
     const grid = document.getElementById("game");
     const difficulty = document.getElementById("difficulty").value;
@@ -5,7 +16,6 @@ function generateGrid() {
     document.getElementById("options").style.display = "none";
     document.getElementById("game-content").style.visibility = "visible";
 
-    const timer = startTimer();
     let numOfTotalCards = 0;
 
     switch (difficulty) {
@@ -74,6 +84,8 @@ function generateGrid() {
 
                     firstCard = null;
                     secondCard = null;
+
+                    numOfTotalCards -= 2;
                 } else {
                     setTimeout(() => {
                         firstCard.classList.remove("flipped");
@@ -84,7 +96,46 @@ function generateGrid() {
                     }, 1000);
                 }
             }
+
+            if (numOfTotalCards == 0) {
+                stopTimer();
+                document.getElementById("options").style.display = "block";
+                document.getElementById("submit").style.display = "block";
+
+                document
+                    .getElementById("submit")
+                    .addEventListener("click", function () {
+                        var provider = new firebase.auth.GoogleAuthProvider();
+
+                        firebase
+                            .auth()
+                            .signInWithPopup(provider)
+                            .then((result) => {
+                                /** @type {firebase.auth.OAuthCredential} */
+                                var credential = result.credential;
+
+                                // This gives you a Google Access Token. You can use it to access the Google API.
+                                var token = credential.accessToken;
+                                // The signed-in user info.
+                                var user = result.user;
+                                // IdP data available in result.additionalUserInfo.profile.
+                                // ...
+                            })
+                            .catch((error) => {
+                                // Handle Errors here.
+                                var errorCode = error.code;
+                                var errorMessage = error.message;
+                                // The email of the user's account used.
+                                var email = error.email;
+                                // The firebase.auth.AuthCredential type that was used.
+                                var credential = error.credential;
+                                // ...
+                            });
+                    });
+            }
         });
+
+        numOfTotalCards = 0;
 
         grid.appendChild(card);
     }
@@ -97,11 +148,11 @@ function startTimer() {
     const time = document.getElementById("time");
 
     timerInterval = setInterval(() => {
+        seconds++;
         const minutes = Math.floor(seconds / 60);
         time.textContent = `${minutes}:${(seconds % 60)
             .toString()
             .padStart(2, "0")}`;
-        seconds++;
     }, 1000);
 }
 
@@ -112,7 +163,7 @@ function stopTimer() {
 function resetTimer() {
     clearInterval(timerInterval);
     elapsedTime = 0;
-    document.getElementById("timer").textContent = "0:00";
+    document.getElementById("time").textContent = "0:00";
 }
 
 function shuffle(array) {
@@ -124,8 +175,3 @@ function shuffle(array) {
         array[j] = temp;
     }
 }
-
-let firstCard = null;
-let secondCard = null;
-
-document.getElementById("start-button").addEventListener("click", generateGrid);
