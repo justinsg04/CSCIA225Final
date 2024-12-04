@@ -103,10 +103,10 @@ function generateGrid() {
                 document.getElementById("submit").style.display = "block";
 
                 document
+                
                     .getElementById("submit")
                     .addEventListener("click", function () {
                         var provider = new firebase.auth.GoogleAuthProvider();
-                        db.collection("grocerylist").add({item: value});
 
                         firebase
                             .auth()
