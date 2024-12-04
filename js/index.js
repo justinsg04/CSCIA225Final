@@ -2,6 +2,10 @@ document.getElementById("play-button").addEventListener("click", function () {
     window.location.href = "game.html";
 });
 
+document.getElementById("leaderboard-btn").addEventListener("click", function () {
+    window.location.href = "leaderboard.html";
+});
+
 // how to play popup
 const instructionsButton = document.getElementById('instructions-button');
 const howtoButton = document.getElementById('howto')

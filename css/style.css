@@ -45,17 +45,19 @@
 }
 
 .navbar a {
-    color: white;
+    color: var(--text-color);
     text-decoration: none;
     font-weight: bold;
 }
 
 .navbar a:hover {
     text-decoration: underline;
+    color: white;
 }
 
 .howto {
     cursor: pointer;
+    font-weight: bold;
 }
 
 .howto:hover{
@@ -65,11 +67,16 @@
 
 .aboutus {
     cursor: pointer;
+    font-weight: bold;
 }
 
 .aboutus:hover{
     text-decoration: underline;
     color: white;
+}
+
+.leaderboard_navbar{
+    color: var(--text-color);
 }
 
 body {
