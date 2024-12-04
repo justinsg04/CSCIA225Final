@@ -29,6 +29,20 @@
         </ul>
     </nav>
 
+    <!-- Popup -->
+    <div class="howtoplaypopup" id="how-to-play-popup">
+        <span class="helper"></span>
+        <div>
+            <div class="popupCloseButton">&times;</div>
+            <p>Welcome to the N & J Matching Game! Here's how to play:<br />
+                Click "Play" then select difficulty level. Once selected, click "Start Game"<br />
+                - If you selected "Easy," you will be given a 4x4 grid and will NOT be timed.<br />
+                - If you selected "Medium," you will be given a _x_ grid will have __ minutes to match all the cards. <br />
+                - If you selected "Hard," you will be given a _x_ grid and will have __ minutes to match all the cards.<br />
+               If you successfully match all cards, your time taken will be recorded and submitted to the leaderboard. </p>
+        </div>
+    </div>
+
     <div id="main-content">
         <div id="options">
             <label for="difficulty">Choose difficulty:</label>
@@ -52,10 +66,28 @@
         </div>
     </div>
 
+    <div id="timer-container" style="display: none;">
+        <span id="timer">0:00</span>
+    </div>
+
     <footer class="footer">
         <p>Created by Nick Owens and Justin Glover</p>
     </footer>
-
+    <script src="js/add-element.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-auth-compat.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCXl7vDK2Gxm-wmUF95W6x327zn7QiC3pA",
+            authDomain: "nj-matching-game.firebaseapp.com",
+            projectId: "nj-matching-game",
+            storageBucket: "nj-matching-game.firebasestorage.app",
+            messagingSenderId: "728134671364",
+            appId: "1:728134671364:web:795a8b4f1e36a989baa951",
+            measurementId: "G-RNQFHBF3QZ"
+        };
+    </script>
 </body>
 
 </html>
