@@ -44,7 +44,15 @@ function generateGrid() {
         "python.svg",
         "php.svg",
         "rust.svg",
-        "monitor.svg",
+        "monitor.svg", // image 1
+        "pc.svg",
+        "keyboard.svg",
+        "xbox.svg",
+        "ogxbox.svg",
+        "ps5.svg",
+        "ninswitch.svg",
+        
+
     ];
 
     shuffle(availableCards);
