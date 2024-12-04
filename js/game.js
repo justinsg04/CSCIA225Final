@@ -129,32 +129,3 @@ let firstCard = null;
 let secondCard = null;
 
 document.getElementById("start-button").addEventListener("click", generateGrid);
-
-let timerInterval; 
-let elapsedTime = 0; 
-
-function startTimer() {
-    const timerDisplay = document.getElementById("timer");
-    document.getElementById("timer-container").style.display = "block"; 
-    timerInterval = setInterval(() => {
-        elapsedTime++;
-        const minutes = Math.floor(elapsedTime / 60);
-        const seconds = elapsedTime % 60;
-        timerDisplay.textContent = `${minutes}:${seconds.toString().padStart(2, "0")}`;
-    }, 1000);
-}
-
-function stopTimer() {
-    clearInterval(timerInterval);
-}
-
-function resetTimer() {
-    clearInterval(timerInterval);
-    elapsedTime = 0;
-    document.getElementById("timer").textContent = "0:00";
-}
-
-document.getElementById("start-button").addEventListener("click", () => {
-    resetTimer(); 
-    startTimer(); 
-});
