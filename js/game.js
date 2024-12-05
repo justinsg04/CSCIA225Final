@@ -44,13 +44,13 @@ function generateGrid() {
         "python.svg",
         "php.svg",
         "rust.svg",
-        "android-original.svg", //1
+        "android-original.svg", 
         "azure-original-wordmark",
         "babel-original.svg",
         "apache-plain-wordmark.svg",
         "coffeescript-original-wordmark.svg",
         "chrome-original.svg",
-        "moodle-original-wordmark.svg", //7 - 18  total
+        "moodle-original-wordmark.svg",
         "mocha-original.svg",
         "minitab-original.svg",
         "maven-original-wordmark.svg",
