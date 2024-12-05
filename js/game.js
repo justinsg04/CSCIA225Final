@@ -53,7 +53,7 @@ function generateGrid() {
         "moodle-original-wordmark.svg",
         "mocha-original.svg",
         "minitab-original.svg",
-        "maven-original-wordmark.svg",
+        "xd-original.svg",
         "nimble-original.svg",
         "nixos-original-wordmark.svg",
         "nodejs-original-wordmark.svg",

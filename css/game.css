@@ -118,3 +118,32 @@ label {
 #start-button:active {
     transform: scale(0.95);
 }
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Ensures it's vertically centered */
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: red;
+    color: #fff;
+}
+
+tr:nth-child(odd) {
+    background-color: lightgray;
+}
