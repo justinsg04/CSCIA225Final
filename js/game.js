@@ -44,15 +44,27 @@ function generateGrid() {
         "python.svg",
         "php.svg",
         "rust.svg",
-        "monitor.svg", // image 1
-        "pc.svg",
-        "keyboard.svg",
-        "xbox.svg",
-        "ogxbox.svg",
-        "ps5.svg",
-        "ninswitch.svg",
-        
-
+        "android-original.svg", //1
+        "azure-original-wordmark",
+        "babel-original.svg",
+        "apache-plain-wordmark.svg",
+        "coffeescript-original-wordmark.svg",
+        "chrome-original.svg",
+        "moodle-original-wordmark.svg", //7 - 18  total
+        "mocha-original.svg",
+        "minitab-original.svg",
+        "maven-original-wordmark.svg",
+        "nimble-original.svg",
+        "nixos-original-wordmark.svg",
+        "nodejs-original-wordmark.svg",
+        "nuget-original-wordmark.svg",
+        "oracle-original.svg",
+        "opera-original-word.svg",
+        "pyscript-original-wordmark.svg",
+        "rstudio-original.svg",
+        "swift-original-wordmarl.svg",
+        "webflow-original.svg",
+        "xcode-original.svg"
     ];
 
     shuffle(availableCards);
