@@ -210,3 +210,32 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
+
+table {
+    position: relative;
+    top: 10em;
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border-color: #000;
+    border-style: hidden;
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: rgb(5, 191, 248);
+    color: #fff;
+    font-family: 'Play', sans-serif;
+    font-weight: bold;
+    font-size: large;
+}
+
+tr:nth-child(odd) {
+    background-color: lightgray;
+}
