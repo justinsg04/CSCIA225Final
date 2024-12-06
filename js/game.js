@@ -106,22 +106,11 @@ function generateGrid() {
                     .getElementById("submit")
                     .addEventListener("click", function () {
                         var provider = new firebase.auth.GoogleAuthProvider();
-                        db.collection("grocerylist").add({item: value});
 
                         firebase
                             .auth()
                             .signInWithPopup(provider)
-                            .then((result) => {
-                                /** @type {firebase.auth.OAuthCredential} */
-                                var credential = result.credential;
-
-                                // This gives you a Google Access Token. You can use it to access the Google API.
-                                var token = credential.accessToken;
-                                // The signed-in user info.
-                                var user = result.user;
-                                // IdP data available in result.additionalUserInfo.profile.
-                                // ...
-                            })
+                            .then((result) => {})
                             .catch((error) => {
                                 // Handle Errors here.
                                 var errorCode = error.code;
@@ -135,8 +124,6 @@ function generateGrid() {
                     });
             }
         });
-
-        numOfTotalCards = 0;
 
         grid.appendChild(card);
     }

@@ -1,6 +1,3 @@
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-
 const firebaseConfig = {
     apiKey: "AIzaSyCXl7vDK2Gxm-wmUF95W6x327zn7QiC3pA",
     authDomain: "nj-matching-game.firebaseapp.com",
@@ -11,7 +8,6 @@ const firebaseConfig = {
     measurementId: "G-RNQFHBF3QZ",
 };
 
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+firebase.initializeApp(firebaseConfig);
 
 console.log("Firebase initialized");
