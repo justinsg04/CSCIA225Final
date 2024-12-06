@@ -44,6 +44,27 @@ function generateGrid() {
         "python.svg",
         "php.svg",
         "rust.svg",
+        "android-original.svg", 
+        "azure-original-wordmark",
+        "babel-original.svg",
+        "apache-plain-wordmark.svg",
+        "coffeescript-original-wordmark.svg",
+        "chrome-original.svg",
+        "moodle-original-wordmark.svg",
+        "mocha-original.svg",
+        "minitab-original.svg",
+        "xd-original.svg",
+        "nimble-original.svg",
+        "nixos-original-wordmark.svg",
+        "nodejs-original-wordmark.svg",
+        "nuget-original-wordmark.svg",
+        "oracle-original.svg",
+        "opera-original-word.svg",
+        "pyscript-original-wordmark.svg",
+        "rstudio-original.svg",
+        "swift-original-wordmarl.svg",
+        "webflow-original.svg",
+        "xcode-original.svg"
     ];
 
     shuffle(availableCards);
@@ -103,6 +124,7 @@ function generateGrid() {
                 document.getElementById("submit").style.display = "block";
 
                 document
+                
                     .getElementById("submit")
                     .addEventListener("click", function () {
                         var provider = new firebase.auth.GoogleAuthProvider();
