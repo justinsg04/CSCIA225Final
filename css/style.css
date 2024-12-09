@@ -55,6 +55,10 @@
     color: white;
 }
 
+.welcome {
+    align-content: center;
+}
+
 .howto {
     cursor: pointer;
     font-weight: bold;
@@ -96,14 +100,29 @@ body {
     margin-top: 0;
 }
 
+html, body {
+    height: 100%; 
+    margin: 0; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+.welcome {
+    display: flex; /* Flexbox for buttons alignment */
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 0px; /* Add space between buttons */
+}
+
+
 .play-btn {
     font-family: 'Play', sans-serif;
     font-weight: 250;
-    position: absolute;
+    /* position: absolute;
     top: 340px;
-    left: 820px;
-    padding: 15px 30px;
-    margin: 10px;
+    left: 820px; */
+    padding: 15px 10px;
+    margin: 5px;
     font-size: 1.2rem;
     cursor: pointer;
     border: none;
@@ -121,11 +140,11 @@ body {
 .instructions-btn {
     font-family: 'Play', sans-serif;
     font-weight: 250;
-    position: absolute;
+    /* position: absolute;
     top: 400px;
-    left: 790px;
-    padding: 15px 30px;
-    margin: 10px;
+    left: 790px; */
+    padding: 15px 10px;
+    margin: 5px;
     font-size: 1.2rem;
     cursor: pointer;
     border: none;
@@ -215,11 +234,11 @@ body {
 .leaderboard-btn {
     font-family: 'Play', sans-serif;
     font-weight: 250;
-    position: absolute;
+    /* position: absolute;
     top: 460px;
-    left: 780px;
+    left: 780px; */
     padding: 15px 37px;
-    margin: 10px;
+    margin: 5px;
     font-size: 1.2rem;
     cursor: pointer;
     border: none;
@@ -248,7 +267,7 @@ body {
 }
 
 table {
-    position: relative;
+    position: absolute;
     top: 10em;
     width: 80%;
     margin: 20px auto;

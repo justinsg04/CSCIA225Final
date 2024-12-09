@@ -187,7 +187,6 @@ function shuffle(array) {
 }
 
 // how to play popup
-const instructionsButton = document.getElementById('instructions-button');
 const howtoButton = document.getElementById('howto')
 const popup1 = document.getElementById('how-to-play-popup');
 const closeButton = document.querySelector('.popupCloseButton');
@@ -195,11 +194,7 @@ const closeButton = document.querySelector('.popupCloseButton');
 const aboutUsButton = document.getElementById('aboutus');
 const popup2 = document.getElementById('aboutus_popup');
 const closeButton2 = document.querySelector('.close-about-us');
-//--------------
-instructionsButton.addEventListener('click', () => {
-    popup1.style.display = 'block';
-});
-
+//-------------
 howtoButton.addEventListener('click', () => {
     popup1.style.display = 'block';
 });
