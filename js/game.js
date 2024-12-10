@@ -156,14 +156,58 @@ let seconds = 0;
 
 function startTimer() {
     const time = document.getElementById("time");
+    const difficulty = document.getElementById("difficulty").value;
 
-    timerInterval = setInterval(() => {
-        seconds++;
-        const minutes = Math.floor(seconds / 60);
-        time.textContent = `${minutes}:${(seconds % 60)
-            .toString()
-            .padStart(2, "0")}`;
-    }, 1000);
+    let timeLimit = 0; // Time limit in seconds
+    switch (difficulty) {
+        case "medium":
+            timeLimit = 5 * 60; // 5 minutes
+            break;
+        case "hard":
+            timeLimit = 7 * 60; // 7 minutes
+            break;
+        default:
+            timeLimit = 0; // No countdown for easy
+    }
+
+    if (timeLimit > 0) {
+        let remainingSeconds = timeLimit;
+
+        timerInterval = setInterval(() => {
+            const minutes = Math.floor(remainingSeconds / 60);
+            const seconds = remainingSeconds % 60;
+
+            time.textContent = `${minutes}:${seconds.toString().padStart(2, "0")}`;
+
+            remainingSeconds--;
+
+            if (remainingSeconds < 0) {
+                clearInterval(timerInterval); // Stop the timer
+                alert("Time's up! Game over.");
+                resetGame(); // Reset the game state
+            }
+        }, 1000);
+    } else {
+        // Default timer logic for "easy" mode (count up)
+        seconds = 0;
+        timerInterval = setInterval(() => {
+            seconds++;
+            const minutes = Math.floor(seconds / 60);
+            time.textContent = `${minutes}:${(seconds % 60).toString().padStart(2, "0")}`;
+        }, 1000);
+    }
+}
+
+function resetGame() {
+    const grid = document.getElementById("game");
+    grid.innerHTML = ""; // Clear the game grid
+
+    document.getElementById("options").style.display = "block";
+    document.getElementById("game-content").style.visibility = "hidden";
+
+    resetTimer();
+
+    alert("Please try again!");
 }
 
 function stopTimer() {
@@ -222,4 +266,8 @@ popup2.addEventListener('click', (event) => {
     if (event.target === popup2) {
         popup2.style.display = 'none';
     }
+});
+
+document.getElementById("submitbutton").addEventListener("click", function () {
+    window.location.href = "leaderboard.html";
 });
