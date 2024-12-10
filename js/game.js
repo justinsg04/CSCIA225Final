@@ -45,7 +45,6 @@ function generateGrid() {
         "php.svg",
         "rust.svg",
         "android-original.svg", 
-        "azure-original-wordmark",
         "babel-original.svg",
         "apache-plain-wordmark.svg",
         "chrome-original.svg",
@@ -64,7 +63,8 @@ function generateGrid() {
         "envoy-plain-wordmark.svg",
         "webflow-original.svg",
         "xcode-original.svg",
-        "facebook-plain.svg"
+        "facebook-plain.svg",
+        "dot-net-plain-wordmark.svg"
     ];
 
     shuffle(availableCards);
@@ -120,7 +120,7 @@ function generateGrid() {
 
             if (numOfTotalCards == 0) {
                 stopTimer();
-                document.getElementById("options").style.display = "block";
+                document.getElementById("options").style.display = "none";
                 document.getElementById("submit").style.display = "block";
 
                 document
