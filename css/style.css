@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com');
 
-
 :root {
     --page-color: #f0f0f0;
     --section-bg-color: #fff;
@@ -9,12 +8,22 @@
 }
 
 body {
+    font-family: 'Arial', sans-serif;
     background: linear-gradient(278deg, #009fff, #ec2f4b);
     background-size: 400% 400%;
 
     -webkit-animation: Background 60s ease infinite;
     -moz-animation: Background 60s ease infinite;
     animation: Background 60s ease infinite;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @-webkit-keyframes Background {
@@ -110,34 +119,20 @@ body {
     align-content: center;
 }
 
-.howto {
+.navbar ul li {
     cursor: pointer;
     font-weight: bold;
 }
 
-.howto:hover{
+.navbar ul li:hover {
     text-decoration: underline;
     color: white;
 }
 
-.aboutus {
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.aboutus:hover{
-    text-decoration: underline;
-    color: white;
-}
-
-.leaderboard_navbar{
+.leaderboard_navbar {
     color: var(--text-color);
 }
 
-body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-}
 
 #main-content {
     /* flex: 1; */
@@ -150,18 +145,15 @@ body {
     margin-top: 0;
 }
 
-html, body {
-    height: 100%; 
-    margin: 0; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-}
+
 
 .welcome {
-    display: flex; /* Flexbox for buttons alignment */
-    flex-direction: column; /* Stack buttons vertically */
-    gap: 0px; /* Add space between buttons */
+    display: flex;
+    /* Flexbox for buttons alignment */
+    flex-direction: column;
+    /* Stack buttons vertically */
+    gap: 0px;
+    /* Add space between buttons */
 }
 
 
@@ -223,7 +215,7 @@ html, body {
     z-index: 1000;
 }
 
-.howtoplaypopup > div {
+.howtoplaypopup>div {
     background: white;
     width: 50%;
     margin: 10% auto;
@@ -246,7 +238,7 @@ html, body {
     z-index: 1000;
 }
 
-.aboutus_popup > div {
+.aboutus_popup>div {
     background: white;
     width: 50%;
     margin: 10% auto;

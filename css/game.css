@@ -119,11 +119,12 @@ label {
     transform: scale(0.95);
 }
 
-main {
+#main-content {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 80vh; /* Ensures it's vertically centered */
+    min-height: 80vh;
+    /* Ensures it's vertically centered */
 }
 
 #submitbutton {

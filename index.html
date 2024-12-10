@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>N&J Matching Game</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/game.css">
 
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +15,8 @@
         href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Playwrite+DE+Grund:wght@100..400&display=swap"
         rel="stylesheet">
 
-    <script src="js/index.js" defer></script>
+    <script src="js/navbar.js" defer></script>
+    <script src="js/game.js" defer></script>
 </head>
 
 <body>
@@ -24,17 +26,38 @@
     <nav class="navbar">
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li class="howto" id="howto"><a href=""></a>How To Play</li>
-            <li class="aboutus" id="aboutus"><a href=""></a>About Us</li>
-            <li class="leaderboard_navbar" id="leaderboard_navbar"><a href="leaderboard.html">Leaderboard</a></li>
+            <li id="howto">How To Play</li>
+            <li id="aboutus">About Us</li>
+            <li id="leaderboard_navbar"><a href="leaderboard.html">Leaderboard</a></li>
         </ul>
     </nav>
 
     <!-- Welcome Screen-->
-    <div class="welcome">
-        <button class="play-btn" id="play-button" type="button">Play</button>
-        <button class="instructions-btn" id="instructions-button" type="button">How to Play</button>
-        <button class="leaderboard-btn" id="leaderboard-btn" type="button">Leaderboard</button>
+    <div id="main-content">
+        <div id="options">
+            <label for="difficulty">Choose difficulty:</label>
+            <select id="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+
+            <button id="start-button" type="button">Start Game</button>
+        </div>
+
+        <div id="game-content">
+            <div id="timer-container">
+                <span id="time">0:00</span>
+            </div>
+
+            <div id="game">
+
+            </div>
+        </div>
+
+        <div id="submit" style="display: none;">
+            <button id="submitbutton" type="button">Submit Time</button>
+        </div>
     </div>
 
     <!-- Popup -->
@@ -42,13 +65,13 @@
         <span class="helper"></span>
         <div>
             <div class="popupCloseButton">&times;</div>
-            <p>Welcome to the N & J Matching Game! Here's how to play:<br />
-                Click "Play" then select difficulty level. Once selected, click "Start Game"<br />
-                - If you selected "Easy," you will be given a 4x4 grid and will NOT be timed.<br />
+            <p>Welcome to the N & J Matching Game! Here's how to play:<br>
+                Click "Play" then select difficulty level. Once selected, click "Start Game"<br>
+                - If you selected "Easy," you will be given a 4x4 grid and will NOT be timed.<br>
                 - If you selected "Medium," you will be given a 6x6 grid will have 5 minutes to match all the cards.
-                <br />
+                <br>
                 - If you selected "Hard," you will be given a 8x8 grid and will have 7 minutes to match all the
-                cards.<br />
+                cards.<br>
                 If you successfully match all cards, your time taken will be recorded and submitted to the leaderboard.
             </p>
         </div>
@@ -59,17 +82,21 @@
         <div>
             <div class="close-about-us">&times;</div>
             <p>Our names are Justin Glover and Nick Owens.
-                <br />
-                - Justin is from Beech Island, South Carolina. He is a junior Computer Science major.<br />
+                <br>
+                - Justin is from Beech Island, South Carolina. He is a junior Computer Science major.<br>
                 - Nick is from Graniteville, South Carolina. He is also a junior Computer Science major.
             </p>
         </div>
     </div>
 
-    
     <footer class="footer">
         <p>Created by Nick Owens and Justin Glover</p>
     </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-auth-compat.js"></script>
+    <script src="js/firebase.js" type="module"></script>
 </body>
 
 </html>

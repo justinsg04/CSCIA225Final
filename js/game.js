@@ -44,7 +44,7 @@ function generateGrid() {
         "python.svg",
         "php.svg",
         "rust.svg",
-        "android-original.svg", 
+        "android-original.svg",
         "babel-original.svg",
         "apache-plain-wordmark.svg",
         "chrome-original.svg",
@@ -64,7 +64,7 @@ function generateGrid() {
         "webflow-original.svg",
         "xcode-original.svg",
         "facebook-plain.svg",
-        "dot-net-plain-wordmark.svg"
+        "dot-net-plain-wordmark.svg",
     ];
 
     shuffle(availableCards);
@@ -124,7 +124,7 @@ function generateGrid() {
                 document.getElementById("submit").style.display = "block";
 
                 document
-                
+
                     .getElementById("submit")
                     .addEventListener("click", function () {
                         var provider = new firebase.auth.GoogleAuthProvider();
@@ -177,7 +177,9 @@ function startTimer() {
             const minutes = Math.floor(remainingSeconds / 60);
             const seconds = remainingSeconds % 60;
 
-            time.textContent = `${minutes}:${seconds.toString().padStart(2, "0")}`;
+            time.textContent = `${minutes}:${seconds
+                .toString()
+                .padStart(2, "0")}`;
 
             remainingSeconds--;
 
@@ -193,7 +195,9 @@ function startTimer() {
         timerInterval = setInterval(() => {
             seconds++;
             const minutes = Math.floor(seconds / 60);
-            time.textContent = `${minutes}:${(seconds % 60).toString().padStart(2, "0")}`;
+            time.textContent = `${minutes}:${(seconds % 60)
+                .toString()
+                .padStart(2, "0")}`;
         }, 1000);
     }
 }
@@ -229,45 +233,3 @@ function shuffle(array) {
         array[j] = temp;
     }
 }
-
-// how to play popup
-const howtoButton = document.getElementById('howto')
-const popup1 = document.getElementById('how-to-play-popup');
-const closeButton = document.querySelector('.popupCloseButton');
-
-const aboutUsButton = document.getElementById('aboutus');
-const popup2 = document.getElementById('aboutus_popup');
-const closeButton2 = document.querySelector('.close-about-us');
-//-------------
-howtoButton.addEventListener('click', () => {
-    popup1.style.display = 'block';
-});
-
-closeButton.addEventListener('click', () => {
-    popup1.style.display = 'none';
-});
-
-popup1.addEventListener('click', (event) => {
-    if (event.target === popup1) {
-        popup1.style.display = 'none';
-    }
-});
-
-//------------
-aboutUsButton.addEventListener('click', () => {
-    popup2.style.display = 'block';
-});
-
-closeButton2.addEventListener('click', () => {
-    popup2.style.display = 'none';
-});
-
-popup2.addEventListener('click', (event) => {
-    if (event.target === popup2) {
-        popup2.style.display = 'none';
-    }
-});
-
-document.getElementById("submitbutton").addEventListener("click", function () {
-    window.location.href = "leaderboard.html";
-});
