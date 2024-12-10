@@ -5,7 +5,58 @@
     --page-color: #f0f0f0;
     --section-bg-color: #fff;
     --text-color: #000000;
-    --highlight-color: #ff8c00;
+    --highlight-color: #ec2f4b;
+}
+
+body {
+    background: linear-gradient(278deg, #009fff, #ec2f4b);
+    background-size: 400% 400%;
+
+    -webkit-animation: Background 60s ease infinite;
+    -moz-animation: Background 60s ease infinite;
+    animation: Background 60s ease infinite;
+}
+
+@-webkit-keyframes Background {
+    0% {
+        background-position: 0% 78%
+    }
+
+    50% {
+        background-position: 100% 23%
+    }
+
+    100% {
+        background-position: 0% 78%
+    }
+}
+
+@-moz-keyframes Background {
+    0% {
+        background-position: 0% 78%
+    }
+
+    50% {
+        background-position: 100% 23%
+    }
+
+    100% {
+        background-position: 0% 78%
+    }
+}
+
+@keyframes Background {
+    0% {
+        background-position: 0% 78%
+    }
+
+    50% {
+        background-position: 100% 23%
+    }
+
+    100% {
+        background-position: 0% 78%
+    }
 }
 
 .title {
@@ -86,7 +137,6 @@
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background-color: rgb(83, 83, 83)
 }
 
 #main-content {
