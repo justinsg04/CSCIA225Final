@@ -122,28 +122,80 @@ function generateGrid() {
                 stopTimer();
                 document.getElementById("options").style.display = "none";
                 document.getElementById("submit").style.display = "block";
+                //before
+                // document
 
-                document
+                //     .getElementById("submit")
+                //     .addEventListener("click", function () {
+                //         var provider = new firebase.auth.GoogleAuthProvider();
 
-                    .getElementById("submit")
-                    .addEventListener("click", function () {
-                        var provider = new firebase.auth.GoogleAuthProvider();
+                //         firebase
+                //             .auth()
+                //             .signInWithPopup(provider)
+                //             .then((result) => {})
+                //             .catch((error) => {
+                //                 // Handle Errors here.
+                //                 var errorCode = error.code;
+                //                 var errorMessage = error.message;
+                //                 // The email of the user's account used.
+                //                 var email = error.email;
+                //                 // The firebase.auth.AuthCredential type that was used.
+                //                 var credential = error.credential;
+                //                 // ...
+                //             });
+                //     });
+                //before
+                document.getElementById("submit").addEventListener("click", function () {
+                    var provider = new firebase.auth.GoogleAuthProvider();
+                
+                    firebase
+                        .auth()
+                        .signInWithPopup(provider)
+                        .then((result) => {
+                            const user = result.user; // Firebase user object
+                            const username = user.displayName; // User's Google account name
+                            const email = user.email; // User's email
+                            const difficulty = document.getElementById("difficulty").value; // Selected difficulty
+                            const gameTime = document.getElementById("time").textContent; // Current game time
+                
+                            // Send data to Firebase Firestore
+                            saveGameData(username, email, difficulty, gameTime);
+                        })
+                        .catch((error) => {
+                            // Handle Errors here
+                            var errorCode = error.code;
+                            var errorMessage = error.message;
+                            var email = error.email;
+                            var credential = error.credential;
+                            console.log("Error: ", errorMessage);
+                        });
 
-                        firebase
-                            .auth()
-                            .signInWithPopup(provider)
-                            .then((result) => {})
-                            .catch((error) => {
-                                // Handle Errors here.
-                                var errorCode = error.code;
-                                var errorMessage = error.message;
-                                // The email of the user's account used.
-                                var email = error.email;
-                                // The firebase.auth.AuthCredential type that was used.
-                                var credential = error.credential;
-                                // ...
-                            });
-                    });
+                        function saveGameData(username, email, difficulty, gameTime) {
+                            // Get Firestore instance
+                            const db = firebase.firestore();
+                        
+                            // Add data to the "games" collection
+                            db.collection("games")
+                                .add({
+                                    username: username,
+                                    email: email,
+                                    difficulty: difficulty,
+                                    gameTime: gameTime,
+                                    timestamp: firebase.firestore.FieldValue.serverTimestamp() // Automatically adds timestamp
+                                })
+                                .then(() => {
+                                    console.log("Game data saved successfully!");
+                                    alert("Game data saved!");
+                                })
+                                .catch((error) => {
+                                    console.error("Error adding document: ", error);
+                                    alert("Error saving game data.");
+                                });
+                        }
+                        
+                });
+                
+
             }
         });
 
