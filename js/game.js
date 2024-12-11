@@ -169,95 +169,92 @@ function generateGrid() {
                             var credential = error.credential;
                             console.log("Error: ", errorMessage);
                         });
-
-                        function saveGameData(username, email, difficulty, gameTime) {
-                            // Get Firestore instance
-                            const db = firebase.firestore();
-                        
-                            // Add data to the "games" collection
-                            db.collection("games")
-                                .add({
-                                    username: username,
-                                    //email: email,
-                                    difficulty: difficulty,
-                                    gameTime: gameTime,
-                                    timestamp: firebase.firestore.FieldValue.serverTimestamp() // Automatically adds timestamp
-                                })
-                                .then(() => {
-                                    console.log("Game data saved successfully!");
-                                    alert("Game data saved!");
-                                })
-                                .catch((error) => {
-                                    console.error("Error adding document: ", error);
-                                    alert("Error saving game data.");
-                                });
-                        }
-
-                        //new
-                        // Function to fetch and display leaderboard data
-                    function loadLeaderboard() {
-                        const gamesRef = firebase.firestore().collection('games');
-                        gamesRef.orderBy('gameTime') // Orders by gameTime (you can adjust sorting)
-                            .get()
-                            .then(snapshot => {
-                                const leaderboardTable = document.getElementById("leaderboard").getElementsByTagName('tbody')[0];
-                                leaderboardTable.innerHTML = ''; // Clear any existing rows in the table
-
-                                let rank = 1; // Initialize rank counter
-
-                                snapshot.forEach(doc => {
-                                    const gameData = doc.data();
-                                    const row = document.createElement("tr");
-
-                                    // Create Rank cell
-                                    const rankCell = document.createElement("td");
-                                    rankCell.textContent = rank; // Show rank
-                                    row.appendChild(rankCell);
-
-                                    // Create Name cell
-                                    const usernameCell = document.createElement("td");
-                                    usernameCell.textContent = gameData.username || "Unknown"; // Default to "Unknown" if no username
-                                    row.appendChild(usernameCell);
-
-                                    // Create Time cell
-                                    const timeCell = document.createElement("td");
-                                    timeCell.textContent = formatTime(gameData.gameTime); // Format the time
-                                    row.appendChild(timeCell);
-
-                                    // Create Difficulty cell
-                                    const difficultyCell = document.createElement("td");
-                                    difficultyCell.textContent = gameData.difficulty || "N/A"; // Default to "N/A" if no difficulty
-                                    row.appendChild(difficultyCell);
-
-                                    // Append the row to the table body
-                                    leaderboardTable.appendChild(row);
-
-                                    rank++; // Increment rank for the next entry
-                                });
-                            })
-                            .catch(error => {
-                                console.error("Error fetching leaderboard data: ", error);
-                            });
-                    }
-
-                    // Format the time as MM:SS
-                    function formatTime(seconds) {
-                        const minutes = Math.floor(seconds / 60);
-                        const remainingSeconds = seconds % 60;
-                        return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
-                    }
-
-                    // Call this function when the page loads to display the leaderboard
-                    document.addEventListener('DOMContentLoaded', () => {
-                        loadLeaderboard(); // Automatically load leaderboard data when page is ready
-                    });
-
-                        //new
-
-                        //window.location.href = 'leaderboard.html';  // Redirect to the leaderboard page after submitting
-
-                        
                 });
+                
+                function saveGameData(username, email, difficulty, gameTime) {
+                    // Get Firestore instance
+                    const db = firebase.firestore();
+                
+                    const gameId = "someGameId"; // Replace with the actual ID of the parent document
+                    const randomSubcollectionName = `sub_${Math.random().toString(36).substr(2, 9)}`; // Dynamically generate subcollection name
+                
+                    db.collection("games")
+                        .doc(gameId) // Specify the parent document in the 'games' collection
+                        .collection(randomSubcollectionName) // Reference the random subcollection
+                        .add({
+                            username: username,
+                            difficulty: difficulty,
+                            gameTime: gameTime,
+                            timestamp: firebase.firestore.FieldValue.serverTimestamp() // Automatically adds timestamp
+                        })
+                        .then(() => {
+                            console.log("Game data saved successfully!");
+                            alert("Game data saved!");
+                        })
+                        .catch((error) => {
+                            console.error("Error adding document: ", error);
+                            alert("Error saving game data.");
+                        });
+                }
+                
+                // Function to fetch and display leaderboard data
+                function loadLeaderboard() {
+                    const gamesRef = firebase.firestore().collection('games');
+                    gamesRef.orderBy('gameTime') // Orders by gameTime (you can adjust sorting)
+                        .get()
+                        .then(snapshot => {
+                            const leaderboardTable = document.getElementById("leaderboard").getElementsByTagName('tbody')[0];
+                            leaderboardTable.innerHTML = ''; // Clear any existing rows in the table
+                
+                            let rank = 1; // Initialize rank counter
+                
+                            snapshot.forEach(doc => {
+                                const gameData = doc.data();
+                                const row = document.createElement("tr");
+                
+                                // Create Rank cell
+                                const rankCell = document.createElement("td");
+                                rankCell.textContent = rank; // Show rank
+                                row.appendChild(rankCell);
+                
+                                // Create Name cell
+                                const usernameCell = document.createElement("td");
+                                usernameCell.textContent = gameData.username || "Unknown"; // Default to "Unknown" if no username
+                                row.appendChild(usernameCell);
+                
+                                // Create Time cell
+                                const timeCell = document.createElement("td");
+                                timeCell.textContent = formatTime(gameData.gameTime); // Format the time
+                                row.appendChild(timeCell);
+                
+                                // Create Difficulty cell
+                                const difficultyCell = document.createElement("td");
+                                difficultyCell.textContent = gameData.difficulty || "N/A"; // Default to "N/A" if no difficulty
+                                row.appendChild(difficultyCell);
+                
+                                // Append the row to the table body
+                                leaderboardTable.appendChild(row);
+                
+                                rank++; // Increment rank for the next entry
+                            });
+                        })
+                        .catch(error => {
+                            console.error("Error fetching leaderboard data: ", error);
+                        });
+                }
+                
+                // Format the time as MM:SS
+                function formatTime(seconds) {
+                    const minutes = Math.floor(seconds / 60);
+                    const remainingSeconds = seconds % 60;
+                    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+                }
+                
+                // Call this function when the page loads to display the leaderboard
+                document.addEventListener('DOMContentLoaded', () => {
+                    loadLeaderboard(); // Automatically load leaderboard data when page is ready
+                });
+                
                 
 
             }
