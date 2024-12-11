@@ -178,7 +178,7 @@ function generateGrid() {
                             db.collection("games")
                                 .add({
                                     username: username,
-                                    email: email,
+                                    //email: email,
                                     difficulty: difficulty,
                                     gameTime: gameTime,
                                     timestamp: firebase.firestore.FieldValue.serverTimestamp() // Automatically adds timestamp
@@ -192,6 +192,67 @@ function generateGrid() {
                                     alert("Error saving game data.");
                                 });
                         }
+
+                        //new
+                        // Function to fetch and display leaderboard data
+                    function loadLeaderboard() {
+                        const gamesRef = firebase.firestore().collection('games');
+                        gamesRef.orderBy('gameTime') // Orders by gameTime (you can adjust sorting)
+                            .get()
+                            .then(snapshot => {
+                                const leaderboardTable = document.getElementById("leaderboard").getElementsByTagName('tbody')[0];
+                                leaderboardTable.innerHTML = ''; // Clear any existing rows in the table
+
+                                let rank = 1; // Initialize rank counter
+
+                                snapshot.forEach(doc => {
+                                    const gameData = doc.data();
+                                    const row = document.createElement("tr");
+
+                                    // Create Rank cell
+                                    const rankCell = document.createElement("td");
+                                    rankCell.textContent = rank; // Show rank
+                                    row.appendChild(rankCell);
+
+                                    // Create Name cell
+                                    const usernameCell = document.createElement("td");
+                                    usernameCell.textContent = gameData.username || "Unknown"; // Default to "Unknown" if no username
+                                    row.appendChild(usernameCell);
+
+                                    // Create Time cell
+                                    const timeCell = document.createElement("td");
+                                    timeCell.textContent = formatTime(gameData.gameTime); // Format the time
+                                    row.appendChild(timeCell);
+
+                                    // Create Difficulty cell
+                                    const difficultyCell = document.createElement("td");
+                                    difficultyCell.textContent = gameData.difficulty || "N/A"; // Default to "N/A" if no difficulty
+                                    row.appendChild(difficultyCell);
+
+                                    // Append the row to the table body
+                                    leaderboardTable.appendChild(row);
+
+                                    rank++; // Increment rank for the next entry
+                                });
+                            })
+                            .catch(error => {
+                                console.error("Error fetching leaderboard data: ", error);
+                            });
+                    }
+
+                    // Format the time as MM:SS
+                    function formatTime(seconds) {
+                        const minutes = Math.floor(seconds / 60);
+                        const remainingSeconds = seconds % 60;
+                        return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+                    }
+
+                    // Call this function when the page loads to display the leaderboard
+                    document.addEventListener('DOMContentLoaded', () => {
+                        loadLeaderboard(); // Automatically load leaderboard data when page is ready
+                    });
+
+                        //new
                         
                 });
                 
