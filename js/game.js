@@ -48,6 +48,7 @@ const availableCards = [
     "haskell.svg",
     "linux.svg",
     "opengl.svg",
+    "google.svg",
 ];
 
 const difficultySettings = {
