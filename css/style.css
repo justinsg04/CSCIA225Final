@@ -308,31 +308,3 @@ body {
     text-align: center;
 }
 
-table {
-    position: absolute;
-    top: 10em;
-    width: 80%;
-    margin: 20px auto;
-    border-collapse: collapse;
-    border-color: #000;
-    border-style: hidden;
-}
-
-th,
-td {
-    border: 1px solid black;
-    padding: 10px;
-    text-align: center;
-}
-
-th {
-    background-color: rgb(5, 191, 248);
-    color: #fff;
-    font-family: 'Play', sans-serif;
-    font-weight: bold;
-    font-size: large;
-}
-
-tr:nth-child(odd) {
-    background-color: lightgray;
-}

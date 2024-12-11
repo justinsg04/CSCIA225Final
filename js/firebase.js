@@ -11,3 +11,9 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 console.log("Firebase initialized");
+
+// Get Firestore instance
+const db = firebase.firestore();
+
+// Add data to the "games" collection
+globalThis.games = db.collection("games");

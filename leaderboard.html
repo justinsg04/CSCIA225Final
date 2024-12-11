@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>N&J Matching Game</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/leaderboard.css">
 
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,8 +16,7 @@
         rel="stylesheet">
 
     <script src="js/navbar.js" defer></script>
-    <script src="js/game.js" defer></script>
-
+    <script src="js/leaderboard.js" defer></script>
 </head>
 
 <body>
@@ -63,10 +63,11 @@
     <table id="leaderboard">
         <thead>
             <tr>
-                <th>Rank</th>
-                <th>Name</th>
-                <th>Time</th>
-                <th>Difficulty</th>
+                <th scope="col">Rank</th>
+                <th scope="col">Name</th>
+                <th scope="col">Time</th>
+                <th scope="col">Difficulty</th>
+                <th scope="col">Date Submitted</th>
             </tr>
         </thead>
         <tbody>
@@ -78,6 +79,10 @@
         <p>Created by Nick Owens and Justin Glover</p>
     </footer>
 
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-auth-compat.js"></script>
+    <script src="js/firebase.js" type="module" async></script>
 </body>
 
 </html>
