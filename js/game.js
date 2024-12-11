@@ -152,7 +152,7 @@ function disableCards() {
                                 alert("Error saving game data.");
                             });
 
-                        // window.location.href = "leaderboard.html"; // Redirect to the leaderboard page after submitting
+                        window.location.href = "leaderboard.html"; // Redirect to the leaderboard page after submitting
                     })
                     .catch((error) => {
                         var errorMessage = error.message;
