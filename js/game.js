@@ -43,6 +43,11 @@ const availableCards = [
     "xcode-original.svg",
     "facebook-plain.svg",
     "dot-net-plain-wordmark.svg",
+    "git.svg",
+    "github.svg",
+    "haskell.svg",
+    "linux.svg",
+    "opengl.svg",
 ];
 
 const difficultySettings = {
@@ -61,11 +66,10 @@ function generateGrid() {
     const { numOfTotalCards, columns } = difficultySettings[difficulty];
     grid.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
 
-    const cards = shuffleArray(
-        availableCards
-            .slice(0, numOfTotalCards / 2)
-            .concat(availableCards.slice(0, numOfTotalCards / 2))
-    );
+    const shuffledCards = shuffleArray(availableCards);
+    const cards = shuffledCards
+        .slice(0, numOfTotalCards / 2)
+        .concat(shuffledCards.slice(0, numOfTotalCards / 2));
 
     grid.style.display = "grid";
     grid.innerHTML = "";
@@ -177,7 +181,7 @@ function resetBoard() {
 }
 
 let timerInterval;
-let seconds = 0;
+let elapsedSeconds = 0;
 
 function startTimer() {
     const time = document.getElementById("time");
