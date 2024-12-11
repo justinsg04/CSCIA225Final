@@ -15,7 +15,7 @@ snapshot
                 <td>${data.username}</td>
                 <td>${formatTime(data.time)}</td>
                 <td>${data.difficulty}</td>
-                <td>${data.createdAt.toDate()}</td>
+                <td>${data.timestamp.toDate()}</td>
             `;
             leaderboard.appendChild(game);
         });
