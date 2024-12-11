@@ -200,7 +200,6 @@ function generateGrid() {
                         gamesRef.orderBy('gameTime') // Orders by gameTime (you can adjust sorting)
                             .get()
                             .then(snapshot => {
-                                console.log("Data fetched from Firestore");
                                 const leaderboardTable = document.getElementById("leaderboard").getElementsByTagName('tbody')[0];
                                 leaderboardTable.innerHTML = ''; // Clear any existing rows in the table
 
@@ -222,14 +221,15 @@ function generateGrid() {
 
                                     // Create Time cell
                                     const timeCell = document.createElement("td");
-                                    timeCell.textContent = formatTime(gameData.gameTime); // Format time
+                                    timeCell.textContent = formatTime(gameData.gameTime); // Format the time
                                     row.appendChild(timeCell);
 
                                     // Create Difficulty cell
                                     const difficultyCell = document.createElement("td");
-                                    difficultyCell.textContent = gameData.difficulty || "N/A";
+                                    difficultyCell.textContent = gameData.difficulty || "N/A"; // Default to "N/A" if no difficulty
                                     row.appendChild(difficultyCell);
 
+                                    // Append the row to the table body
                                     leaderboardTable.appendChild(row);
 
                                     rank++; // Increment rank for the next entry
@@ -250,6 +250,9 @@ function generateGrid() {
                     document.addEventListener('DOMContentLoaded', () => {
                         loadLeaderboard();
                     });
+
+                        window.location.href = 'leaderboard.html';  // Redirect to the leaderboard page after submitting
+
                         
                 });
                 
