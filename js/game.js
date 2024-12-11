@@ -240,6 +240,7 @@ function generateGrid() {
                             });
                     }
 
+                    // Format the time as MM:SS
                     function formatTime(seconds) {
                         const minutes = Math.floor(seconds / 60);
                         const remainingSeconds = seconds % 60;
@@ -248,8 +249,10 @@ function generateGrid() {
 
                     // Call this function when the page loads to display the leaderboard
                     document.addEventListener('DOMContentLoaded', () => {
-                        loadLeaderboard();
+                        loadLeaderboard(); // Automatically load leaderboard data when page is ready
                     });
+
+                        //new
 
                         window.location.href = 'leaderboard.html';  // Redirect to the leaderboard page after submitting
 
