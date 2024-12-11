@@ -253,6 +253,9 @@ function generateGrid() {
                     });
 
                         //new
+
+                        window.location.href = 'leaderboard.html';  // Redirect to the leaderboard page after submitting
+
                         
                 });
                 
