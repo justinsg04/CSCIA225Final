@@ -139,20 +139,19 @@ function disableCards() {
                             .add({
                                 username: username,
                                 difficulty: difficulty,
-                                time: seconds,
+                                time: elapsedSeconds,
                                 timestamp:
                                     firebase.firestore.FieldValue.serverTimestamp(), // Automatically adds timestamp
                             })
                             .then(() => {
                                 console.log("Game data saved successfully!");
                                 alert("Sucessfully submitted game data!");
+                                window.location.href = "leaderboard.html"; // Redirect to the leaderboard page after submitting
                             })
                             .catch((error) => {
                                 console.error("Error adding document: ", error);
                                 alert("Error saving game data.");
                             });
-
-                        window.location.href = "leaderboard.html"; // Redirect to the leaderboard page after submitting
                     })
                     .catch((error) => {
                         var errorMessage = error.message;
@@ -198,10 +197,13 @@ function startTimer() {
 
     if (timeLimit > 0) {
         let remainingSeconds = timeLimit;
+        elapsedSeconds = 0;
 
         timerInterval = setInterval(() => {
             const minutes = Math.floor(remainingSeconds / 60);
             const seconds = remainingSeconds % 60;
+
+            elapsedSeconds++;
 
             time.textContent = `${minutes}:${seconds
                 .toString()
@@ -219,9 +221,9 @@ function startTimer() {
         // Default timer logic for "easy" mode (count up)
         seconds = 0;
         timerInterval = setInterval(() => {
-            seconds++;
-            const minutes = Math.floor(seconds / 60);
-            time.textContent = `${minutes}:${(seconds % 60)
+            elapsedSeconds++;
+            const minutes = Math.floor(elapsedSeconds / 60);
+            time.textContent = `${minutes}:${(elapsedSeconds % 60)
                 .toString()
                 .padStart(2, "0")}`;
         }, 1000);
