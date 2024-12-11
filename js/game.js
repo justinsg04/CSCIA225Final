@@ -68,9 +68,11 @@ function generateGrid() {
     grid.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
 
     const shuffledCards = shuffleArray(availableCards);
-    const cards = shuffledCards
-        .slice(0, numOfTotalCards / 2)
-        .concat(shuffledCards.slice(0, numOfTotalCards / 2));
+    const cards = shuffleArray(
+        shuffledCards
+            .slice(0, numOfTotalCards / 2)
+            .concat(shuffledCards.slice(0, numOfTotalCards / 2))
+    );
 
     grid.style.display = "grid";
     grid.innerHTML = "";
